@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basant Medhat - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('images.jpg') no-repeat center center/cover;
+            text-align: center;
+            color: black;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .about_hero{
+            padding-top: 0px;
+            padding:40px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 50px auto;
+            width: 60%;
+            border-radius: 10px;
+            position: relative;
+        }
+        .hero {
+            padding-top: 20px;
+            padding:60px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 50px auto;
+            width: 60%;
+            border-radius: 10px;
+            position: relative;
+        }
+        .hero h1 {
+    font-size: 4rem; /* Bigger text for Basant Medhat */
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+        .hero img {
+            width: 300px;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            border-radius: 50px 50px 0 0;
+            margin: 20px auto;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            animation: slideUp 2s ease-out forwards;
+        }
+        @keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Move it down initially */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move to normal position */
+    }
+}
+        .hero h2 {
+    margin-bottom: 70px; /* Adds space between text and arrow */
+    display: block;
+    animation: slideUp 2s ease-out forwards;
+}
+.education-container, .scholarship-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.education-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 350px;
+}
+
+.education-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+        .arrow {
+    position: absolute;
+    margin-top: 70px;
+    bottom: 15px; /* Positions arrow at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+.arrow img {
+    width: 60px; 
+    height: 65px; 
+    opacity: 0.8; 
+    margin-top: 40px;
+    transition: opacity 0.3s;
+}
+.arrow img:hover {
+    opacity: 1; 
+}
+        .projects {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 30px auto;
+            width: 80%;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .projects h2 {
+            margin-bottom: 20px;
+        }
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .project {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+        }
+        .project i {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .section {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 30px auto;
+            width: 80%;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .skill-category {
+    position: relative;
+    cursor: pointer;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: background 0.3s;
+}
+
+.skill-category:hover {
+    background: #f8f9fa;
+}
+
+.skill-list {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;  /* Move above instead of below */
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 220px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 10;  /* Ensures it appears above other elements */
+}
+
+.skill-category:hover .skill-list {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Slight upward movement */
+}
+
+         .skills-container {
+            display: grid;
+            grid-template-rows: repeat(auto-fit);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+        }
+        .contact-box img {
+    width: 40px;  /* Adjust size */
+    height: 40px; /* Ensure it's square */
+    border-radius: 50%; /* Make it circular */
+    background: #f8d7da; /* Pink background */
+    padding: 8px; /* Adjust spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+        .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact-box i {
+    font-size: 30px;
+    color: #d65a92;
+    margin-right: 15px;
+    background: #f8d7da;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.contact-box h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contact-box p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function showSkill(skill) {
+            alert("Skill: " + skill);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div>*</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div>Search...</div>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>Basant Medhat</h1>
+        <img src="basant photo.jpg" alt="Basant Medhat">
+        <h2>Data Scientist<br>Data Analyst</h2>
+        <div class="arrow" onclick="scrollToAbout()">
+            <img src="arrow.png" alt="Scroll Down">
+        </div>
+    </section>
+    
+    <section id="about" class="about_hero">
+        <h2>About me</h2>
+        <h3>
+            Hi, I'm Basant Medhat! A passionate Data Scientist, Software Developer, and AI Enthusiast. 
+            With a strong foundation in computer science and hands-on experience in data-driven 
+            solutions, backend development, and AI applications, I am dedicated to building 
+            innovative and impactful projects.
+        </h3>
+    </section>
+    
+    <script>
+        function scrollToAbout() {
+            document.getElementById("about").scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    
+    <section id="work" class="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <i class="fas fa-code"></i>
+                <h3>Compiler Project</h3>
+                <p>Developed a Python-based compiler covering all six phases.</p>
+            </div>
+            <div class="project">
+                <i class="fas fa-utensils"></i>
+                <h3>Restaurant Ordering System</h3>
+                <p>Implemented in Java with parallel processing techniques.</p>
+            </div>
+            <div class="project">
+                <i class="fas fa-smile"></i>
+                <h3>Emotion Detection AI</h3>
+                <p>Built a machine learning model to classify human emotions.</p>
+            </div>
+            <div class="project">
+                <i class="fas fa-money-check-alt"></i>
+                <h3>Money Transfer API</h3>
+                <p>Designed a secure transaction system using Java and Spring Boot.</p>
+            </div>
+            <div class="project">
+                <i class="fas fa-brain"></i>
+                <h3>AI Project</h3>
+                <p>AI concepts such as Linear Regression and KMeans clustering. Scaled and processed data to optimize
+                    model performance.</p>
+            </div>
+            <div class="project">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Development</h3>
+                <p>Developed a full-stack website using HTML, CSS, JavaScript, and ASP.NET.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" class="section">
+        <h2>Education</h2>
+        
+        <!-- University Section -->
+        <div class="education-container">
+            <div class="education-box">
+                <h3>Future University in Egypt</h3>
+                <p>BSc in Computer Science 2021-2025</p>
+                <p>Senior student </p>
+                
+            </div>
+            
+            <div class="education-box">
+                <h3>DEPI Scholarship</h3>
+                <p>Data Science Track</p>
+                <p>Received a prestigious scholarship for outstanding academic performance</p>
+            </div>
+        </div>
+    
+    
+        <!-- Images Section -->
+        <div class="education-images">
+            <img src="future university.png" alt="Future University in Egypt">
+            <img src="university of cenc.png" alt="University of Cincinnati">
+            <img src="depi.png" alt="DEPI Scholarship">
+        </div>
+    </section>
+    
+    
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category" onclick="toggleSkills('programming')">
+                <strong>Programming Languages</strong>
+                <ul id="programming" class="skill-list">
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>C#</li>
+                    <li>SQL</li>
+                    <li>Prolog</li>
+                    <li>PL/SQL</li>
+                </ul>
+            </div>
+            <div class="skill-category" onclick="toggleSkills('web-dev')">
+                <strong>Web Development</strong>
+                <ul id="web-dev" class="skill-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>ASP.NET</li>
+                </ul>
+            </div>
+            <div class="skill-category" onclick="toggleSkills('backend')">
+                <strong>Backend Development</strong>
+                <ul id="backend" class="skill-list">
+                    <li>Spring Boot</li>
+                    <li>PostgreSQL</li>
+                    <li>Oracle System</li>
+                </ul>
+            </div>
+            <div class="skill-category" onclick="toggleSkills('database')">
+                <strong>Database Management</strong>
+                <ul id="database" class="skill-list">
+                    <li>SQL</li>
+                    <li>PL/SQL</li>
+                    <li>PostgreSQL</li>
+                    <li>Oracle Database</li>
+                </ul>
+            </div>
+            <div class="skill-category" onclick="toggleSkills('ml-ai')">
+                <strong>Machine Learning & AI</strong>
+                <ul id="ml-ai" class="skill-list">
+                    <li>Data Visualization</li>
+                    <li>Data Analysis</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Machine Learning</li>
+                    <li>Data Processing</li>
+                </ul>
+            </div>
+            <div class="skill-category" onclick="toggleSkills('software-dev')">
+                <strong>Software Testing & Development</strong>
+                <ul id="software-dev" class="skill-list">
+                    <li>Unit Testing</li>
+                    <li>Debugging</li>
+                    <li>Software Development Life Cycle (SDLC)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function toggleSkills(category) {
+            let list = document.getElementById(category);
+            if (list.style.display === "block") {
+                list.style.display = "none";
+            } else {
+                document.querySelectorAll(".skill-list").forEach(el => el.style.display = "none");
+                list.style.display = "block";
+            }
+        }
+    </script>
+    
+    
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            
+            <div class="contact-box">
+                <img src="phone-icon.jpg" alt="linkdin Logo" class="icon">
+
+                <div>
+                    <h3>Call Us</h3>
+                    <p>01018892300</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <img src="emaill.png" alt="linkdin Logo" class="icon">
+                <div>
+                    <h3>Email Us</h3>
+                    <p>medhatbasant99@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <img src="linkedin-logo.png" alt="linkdin Logo" class="icon">
+                <div>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/basant-medhat" target="_blank">Basant Medhat linkdin</a></p>
+                </div>
+            </div>
+    
+            <!-- New Row -->
+            <div class="contact-box">
+                <img src="address.png" alt="linkdin Logo" class="icon">
+                <div>
+                    <h3>Address</h3>
+                    <p>Abaza Street, Masr Algdeeda, Cairo-Egypt</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <img src="github-logo.png" alt="GitHub Logo" class="icon">
+                
+                <div>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/Basant-medhat" target="_blank">Basant Medhat GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <footer>
+        <p>&copy; 2025 Basant Medhat. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
